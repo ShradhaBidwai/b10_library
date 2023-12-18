@@ -1,0 +1,73 @@
+{% extends 'base.html' %}
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Add a new Book</title>
+</head>
+
+<body>
+    {% block content %}
+
+    <h2>New Book</h2><hr>
+    
+    <form method="post" action="{% url 'add_book' %}">
+        {% csrf_token %}
+
+        <label>ID:</label>
+        <input type="number"  name="id"  value="{{book.id}}"readonly><br><br>
+        
+        <label>Title:</label>
+        <input type="text"  name="title" placeholder="Enter title" value="{{book.title}}" required><br><br>
+
+        <label>Author:</label>
+        <input type="text" name="auth" value="{{book.author}}" required><br><br>
+
+        <label>Publication Date:</label>
+        <input type="date" name="pub_date" value="{{book.publication_date|date:'Y-m-d'}}" required><br><br>
+
+        
+       Price:<input type="number"  name="prc" value="{{book.price}}" required><br><br>
+       
+       publication:
+       <select name="publication_name" >
+            {% for choice_value, choice_lable in Book.PUBLICATION_CHOICE %}
+                {{choice_value}}
+
+            {% endfor %}
+
+        </select><br> 
+
+
+
+         
+       {% if book.id %}
+       <button type="submit" class="btn btn-primary">Update Book</button>
+       {% else %}
+       <button type="submit" class="btn btn-primary">Add Book</button>
+       {% endif %}
+
+    </form><br>
+    <a class="btn btn-primary" href="{% url 'home' %}">Home</a>
+    
+    {% endblock %}
+
+
+
+
+</body>
+</html>
+
+</html>
+
+
+
+
+
+
+<!-- #or for option randomly anthor option is for loop(this is dymanic way and for loop is static way) -->
+ <!-- <option value="{{ choice_value}}">Option 1</option>
+    <option value="{{ choice_value}}">Option 2</option>
+    <option value="{{ choice_value}}">Option 3</option>
+    <option value="{{ choice_value}}">Option 4</option>
+

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Upload CSV</title>
+</head>
+<body>
+    <h2>Upload CSV File</h2>
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form }}
+        <button type="submit">Upload</button>
+    </form>
+
+    <title>Download CSV</title>
+</head>
+<body>
+    <h2>Download CSV</h2>
+    <a href="{% url 'download_csv' %}" download>
+        <button>Download CSV</button>
+</body>
+</html>
+
