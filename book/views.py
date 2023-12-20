@@ -1,11 +1,11 @@
 from django.shortcuts import render, HttpResponse, redirect
 from.models import Book
 
+from django.contrib.auth.decorators import login_required
 
 
-# import logging
-# logger = logging.getLogger('first')
 
+@login_required
 # Create your views here.
 def welcome(request):
     #  return render(request,"home.html")

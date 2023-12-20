@@ -26,19 +26,18 @@ urlpatterns = [
     path('delete-books/',show_deleted_books , name="show_deleted_books"),
     path('restore_book/<int:bid>/', restore_book, name='restore_book'),
 
-  
-    # path('index/', index),  
-    # path('file_list/', file_list, name='file_list'),
-    # path('upload_file/', upload_file, name='upload_file'),
-   
 
 
     path('csv/', include('csv_upload.urls')), # include all the urls from csv_upload app, 
+    
+    
+    path('user/', include('user_app.urls')),   #user_app
+   
 ]
 
 
 # http://127.0.0.1:8000/csv/upload-csv/
-
+# http://127.0.0.1:8000/user/register/
 
 # from django.conf import settings
 # from django.conf.urls.static import static
